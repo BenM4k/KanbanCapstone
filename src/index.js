@@ -4,7 +4,7 @@ import { getData } from './modules/api.js';
 
 const grid = document.querySelector('.video-grid');
 const shows = document.querySelector('.shows');
-shows.textContent = `${ links.length }`
+shows.textContent = `${links.length}`;
 
 links.forEach((link) => {
   getData(link).then((link) => {
