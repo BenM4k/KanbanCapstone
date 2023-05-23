@@ -35,6 +35,11 @@ export default async function render(show, container) {
   list.appendChild(comments);
 
   comments.addEventListener('click', () => {
+    const image = document.querySelector('.popup-thumbnail img');
+    const popupTitle = document.querySelector('h2');
+
+    image.src = `${show.img}`;
+    popupTitle.innerText = `${show.title}`;
     popupCard.style.display = 'flex';
     const popupImg = document.querySelector('.popup-img');
     popupImg.src = `${show.img}`;
