@@ -36,6 +36,8 @@ export default async function render(show, container) {
 
   comments.addEventListener('click', () => {
     popupCard.style.display = 'flex';
+    const popupImg = document.querySelector('.popup-img');
+    popupImg.src = `${show.img}`;
   });
 
   removePopup.addEventListener('click', () => {
