@@ -7,6 +7,8 @@ export default function render(show, container) {
   const likesImg = document.createElement('img');
   const likesNbr = document.createElement('span');
   const comments = document.createElement('p');
+  const popupCard = document.querySelector('.popup-card');
+  const removePopup = document.querySelector('.fa-times');
 
   list.classList.add('video');
   img.classList.add('video-preview');
@@ -31,6 +33,14 @@ export default function render(show, container) {
   list.appendChild(img);
   list.appendChild(div);
   list.appendChild(comments);
+
+  comments.addEventListener('click', () => {
+    popupCard.style.display = 'flex';
+  });
+
+  removePopup.addEventListener('click', () => {
+    popupCard.style.display = 'none';
+  });
 
   container.appendChild(list);
 }
