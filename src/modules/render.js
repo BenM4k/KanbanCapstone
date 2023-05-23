@@ -1,4 +1,4 @@
-export default function render(show, container) {
+export default async function render(show, container) {
   const list = document.createElement('li');
   const img = document.createElement('img');
   const div = document.createElement('div');
