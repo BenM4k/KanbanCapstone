@@ -123,6 +123,7 @@ header {
   position: absolute;
   top: 2rem;
   right: 5rem;
+  cursor: pointer;
 }
 
 .popup-thumbnail {
@@ -169,6 +170,7 @@ form button {
   border: none;
   outline: none;
   border-radius: 0.5rem;
+  cursor: pointer;
 }
 
 footer {
