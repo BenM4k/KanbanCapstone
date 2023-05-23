@@ -1,28 +1,10 @@
-export const shows = [
-  {
-    title: 'The Boys',
-    img: 'assets/img.jpg',
-    likes: 0,
-    comments: [],
-  },
-  {
-    title: 'Breaking Bad',
-    img: 'assets/img.jpg',
-    likes: 0,
-    comments: [],
-  },
-  {
-    title: 'Power',
-    img: 'assets/img.jpg',
-    likes: 0,
-    comments: [],
-  },
-  {
-    title: 'Citizen Kane',
-    img: 'assets/img.jpg',
-    likes: 0,
-    comments: [],
-  },
+export const links = [
+  'https://api.tvmaze.com/singlesearch/shows?q=the+boys',
+  'https://api.tvmaze.com/singlesearch/shows?q=breaking+bad',
+  'https://api.tvmaze.com/singlesearch/shows?q=power',
+  'https://api.tvmaze.com/singlesearch/shows?q=witcher',
+  'https://api.tvmaze.com/singlesearch/shows?q=supernatural',
+  'https://api.tvmaze.com/singlesearch/shows?q=flash',
 ];
 
 export const comments = [];

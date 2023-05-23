@@ -12,6 +12,7 @@ body {
   font-size: 16px;
   padding: 0 70px;
   background: rgb(221, 221, 221);
+  position: relative;
 }
 
 header {
@@ -105,6 +106,11 @@ header {
   display: none;
   flex-direction: column;
   align-items: center;
+  position: absolute;
+  top: 1rem;
+  left: 23rem;
+  background-color: rgb(221, 221, 221);;
+  max-width: 50%;
 }
 
 .popup-card h2 {
@@ -122,12 +128,16 @@ header {
   font-size: 3rem;
   position: absolute;
   top: 2rem;
-  right: 5rem;
+  right: 4rem;
   cursor: pointer;
 }
 
+.fa-times:hover {
+  color: #f00;
+}
+
 .popup-thumbnail {
-  width: 50%;
+  width: 80%;
   margin-top: 3rem;
   padding: 2rem;
 }
@@ -139,7 +149,7 @@ header {
 .popup-footer {
   display: flex;
   flex-direction: column;
-  width: 45%;
+  width: 70%;
   margin: 2rem 0;
 }
 
@@ -153,7 +163,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 40%;
+  width: 50%;
 }
 
 form .input {
@@ -171,6 +181,13 @@ form button {
   outline: none;
   border-radius: 0.5rem;
   cursor: pointer;
+  background-color: #fff;
+  color: #000;
+}
+
+form button:hover {
+  background-color: #000;
+  color: #fff;
 }
 
 footer {
