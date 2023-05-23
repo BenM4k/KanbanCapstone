@@ -1,4 +1,4 @@
-export default function render(show, container) {
+export default async function render(show, container) {
   const list = document.createElement('li');
   const img = document.createElement('img');
   const div = document.createElement('div');
@@ -41,6 +41,8 @@ export default function render(show, container) {
     image.src = `${show.img}`;
     popupTitle.innerText = `${show.title}`;
     popupCard.style.display = 'flex';
+    const popupImg = document.querySelector('.popup-img');
+    popupImg.src = `${show.img}`;
   });
 
   removePopup.addEventListener('click', () => {
