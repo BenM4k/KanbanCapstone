@@ -105,7 +105,6 @@ header {
   display: none;
   flex-direction: column;
   align-items: center;
-
   position: fixed;
   overflow-x: scroll;
   width: 75vw;

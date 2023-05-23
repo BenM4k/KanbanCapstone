@@ -12,9 +12,8 @@ links.forEach((link) => {
       img: link.image.original,
       likes: 0,
       comments: [],
-    }
+    };
 
     render(show, grid);
   });
-})
-
+});
