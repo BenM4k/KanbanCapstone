@@ -1,3 +1,39 @@
+const comments = JSON.parse(localStorage.getItem('comments')) || [];
+// Grab the element from the HTML document
+const userInput = document.querySelector('#name');
+const messageInput = document.querySelector('#message');
+const addBtn = document.querySelector('#add-btn');
+const errorMsg = document.querySelector('#error-msg');
+
+const showComments = () => {
+  // Grab the element from the HTML document
+  const commentsList = document.querySelector('.comments-list');
+
+  commentsList.innerHTML = '';
+  comments.forEach((comment) => {
+    const listItem = document.createElement('li');
+    listItem.innerHTML = `<p><span>${new Date().toJSON().slice(0, 10)}</span> &nbsp; ${comment.user} :  &nbsp; ${comment.comment}</p>`;
+    commentsList.appendChild(listItem);
+  });
+};
+
+const addComment = (user, comment) => {
+  comments.push({ user, comment });
+  localStorage.setItem('comments', JSON.stringify(comments));
+  showComments();
+};
+
+addBtn.addEventListener('click', () => {
+  if (userInput.value.trim() === '' || messageInput.value.trim() === '') {
+    errorMsg.style.display = 'block';
+  } else {
+    addComment(userInput.value.trim(), messageInput.value.trim());
+    userInput.value = '';
+    messageInput.value = '';
+    errorMsg.style.display = 'none';
+  }
+});
+
 export default async function render(show, container) {
   const list = document.createElement('li');
   const img = document.createElement('img');
