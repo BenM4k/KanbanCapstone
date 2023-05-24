@@ -34,7 +34,7 @@ addBtn.addEventListener('click', () => {
   }
 });
 
-export default async function render(show, container) {
+export default async function render(show, container, targetShow) {
   const list = document.createElement('li');
   const img = document.createElement('img');
   const div = document.createElement('div');
@@ -83,14 +83,12 @@ export default async function render(show, container) {
     popupCard.style.display = 'none';
   });
 
-  if(show === targetShow){
-    submit.addEventListener('click', (e) => {
+  if (show === targetShow) {
+    addBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      console.log(submit.parentNode.previousSibling)
-        if (userInput.value !== '' && messageInput.value !== ''){
-          console.log(show.title, userInput.value, messageInput.value);
-        }
-    })
+      // if (userInput.value !== '' && messageInput.value !== '') {
+      // }
+    });
   }
   container.appendChild(list);
 }
