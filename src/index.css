@@ -117,6 +117,14 @@ header {
   z-index: 2;
 }
 
+#error-msg {
+  display: none;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: red;
+}
+
 .popup-card h2 {
   font-size: 2rem;
   margin: 1rem 0;
@@ -148,6 +156,10 @@ header {
 
 .popup-thumbnail img {
   width: 100%;
+}
+
+.comments-list {
+  margin: 3rem 5rem 0 0;
 }
 
 .popup-footer {
