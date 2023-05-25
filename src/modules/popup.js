@@ -74,7 +74,7 @@ export default function createPopup(show) {
     p.textContent = `Comments (${data.length})`;
     data.forEach((comment) => {
       const comm = document.createElement('li');
-      comm.textContent = `${comment.creation_date}   : ${comment.username} : ${comment.comment}`;
+      comm.textContent = `${comment.creation_date} - ${comment.username} : ${comment.comment}`;
 
       commentList.appendChild(comm);
     });
