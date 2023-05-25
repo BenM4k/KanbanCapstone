@@ -12,8 +12,6 @@ links.forEach((link) => {
       id: link.id,
       title: link.name,
       img: link.image.original,
-      likes: 0,
-      comments: [],
     };
 
     render(show, grid);
