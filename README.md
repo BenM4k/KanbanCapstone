@@ -55,6 +55,8 @@
 
 - [Live Project Demo]()
 
+- [Live Project Video](https://drive.google.com/file/d/1akE1_3BY8am07mZ72iQBCtqVsH4azA1s/view?usp=sharing)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->

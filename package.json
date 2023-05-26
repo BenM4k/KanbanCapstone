@@ -9,6 +9,9 @@
     "watch": "jest --watch *.js",
     "test": "jest"
   },
+  "repository": {
+    "url": "git+https://github.com/BenM4k/KanbanCapstone.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
