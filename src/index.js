@@ -1,6 +1,7 @@
 import render from './modules/render.js';
 import { links } from './modules/shows.js';
 import { getData } from './modules/api.js';
+import './index.css';
 
 const grid = document.querySelector('.video-grid');
 const shows = document.querySelector('.shows');
