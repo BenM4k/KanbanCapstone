@@ -1,5 +1,5 @@
 import createPopup from './popup.js';
-import { postLike } from './fetch.js';
+import { postLike, updateCommentsUI } from './fetch.js';
 import { getData } from './api.js';
 
 const microverseApi = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/YmJfq02jOUfGZEDWh0Nq/';
@@ -41,17 +41,28 @@ export default async function render(show, container) {
     createPopup(show);
   });
 
-  container.appendChild(list);
-
-  getData(`${microverseApi}likes`).then((data) => {
-    data.forEach((item) => {
-      if (item.item_id === show.title.split(' ').join('')) {
-        likesNbr.textContent = item.likes;
-      }
-    });
+  getData(`${microverseApi}comments`).then((data) => {
+    const commentsData = data.filter(
+      (item) => item.item_id === show.title.split(' ').join(''),
+    );
+    updateCommentsUI(commentsData);
   });
 
+  container.appendChild(list);
+
+  const updateLikesCounter = () => {
+    getData(`${microverseApi}likes`).then((data) => {
+      data.forEach((item) => {
+        if (item.item_id === show.title.split(' ').join('')) {
+          likesNbr.textContent = item.likes;
+        }
+      });
+    });
+  };
+
+  updateLikesCounter();
+
   likesImg.addEventListener('click', () => {
-    postLike(show);
+    postLike(show, updateLikesCounter);
   });
 }
