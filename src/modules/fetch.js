@@ -1,43 +1,84 @@
-import { postData, getData } from './api.js';
+const microverseApi = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/Um2BR5oCOcLYd21wIEWu/';
 
-const microverseApi = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/YmJfq02jOUfGZEDWh0Nq/';
+export const postComment = async (itemId, username, comment) => {
+  try {
+    const data = {
+      item_id: itemId,
+      username,
+      comment,
+    };
 
-export function updateCommentsUI(comments) {
-  const popupCommentsList = document.getElementById('popup-comments-list');
-  popupCommentsList.innerHTML = '';
-
-  comments.forEach((comment) => {
-    const commentItem = document.createElement('li');
-    commentItem.innerText = comment.comment;
-    popupCommentsList.appendChild(commentItem);
-  });
-}
-
-export function postComment(show, uname, comment, updateCommentsCounter) {
-  const data = {
-    item_id: show.title.split(' ').join(''),
-    username: uname,
-    comment,
-  };
-
-  postData(`${microverseApi}comments`, data)
-    .then(() => {
-      updateCommentsCounter(); // Call the function to update the comments counter
-      return getData(`${microverseApi}comments`); // Fetch updated comments data
-    })
-    .then((data) => {
-      const comments = data.filter(
-        (item) => item.item_id === show.title.split(' ').join(''),
-      );
-      updateCommentsUI(comments); // Update the comments UI
+    const response = await fetch(`${microverseApi}comments`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
     });
-}
 
-export function postLike(show, updateLikesCounter) {
-  const data = {
-    item_id: show.title.split(' ').join(''),
-  };
-  postData(`${microverseApi}likes`, data).then(() => {
-    updateLikesCounter();
+    if (response.status === 201) {
+      return; // Return or perform any desired action upon successful creation
+    }
+
+    const responseData = await response.json();
+    throw new Error('Failed to create comment');
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const postLike = async (itemId) => {
+  try {
+    const data = {
+      item_id: itemId,
+    };
+
+    const response = await fetch(`${microverseApi}likes`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (response.status === 201) {
+      return; // Return or perform any desired action upon successful creation
+    }
+
+    const responseData = await response.json();
+    throw new Error('Failed to create like');
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getLikes = async (itemId) => {
+  try {
+    const response = await fetch(`${microverseApi}likes`);
+    const data = await response.json();
+    const likesData = data.find((item) => item.item_id === itemId);
+    return likesData;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getComments = async (itemId) => {
+  try {
+    const response = await fetch(`${microverseApi}comments?item_id=${itemId}`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const displayComments = async (commentsData, p, commentList) => {
+  p.textContent = `Comments (${commentsData.length})`;
+  commentsData.forEach((comment) => {
+    const comm = document.createElement('li');
+    comm.textContent = `${comment.creation_date} - ${comment.username} : ${comment.comment}`;
+
+    commentList.appendChild(comm);
   });
-}
+};
