@@ -55,7 +55,7 @@
 
 - [Live Project Demo](https://benm4k.github.io/KanbanCapstone/)
 
-- [Live Project Video](https://drive.google.com/file/d/1akE1_3BY8am07mZ72iQBCtqVsH4azA1s/view?usp=sharing)
+- [Live Project Video](https://drive.google.com/file/d/12Feo49Vb76HckiNQTRqjT_cGce-eBXYn/view?usp=sharing)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
