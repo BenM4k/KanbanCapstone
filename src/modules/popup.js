@@ -1,7 +1,4 @@
-import { getComments, postComment, displayComments} from './fetch.js';
-import { getData } from './api.js';
-
-const microverseApi = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/Um2BR5oCOcLYd21wIEWu/';
+import { getComments, postComment, displayComments } from './fetch.js';
 
 export default async function createPopup(show) {
   // initialization
@@ -71,7 +68,6 @@ export default async function createPopup(show) {
   // comment list
 
   const commentsData = await getComments(show.title.trim().split(' ').join(''));
-  console.log(commentsData);  
   displayComments(commentsData, p, commentList);
 
   // popup
@@ -99,9 +95,8 @@ export default async function createPopup(show) {
       name.value = '';
       message.value = '';
 
-      
       const commentsData = await getComments(show.title.trim().split(' ').join(''));
-      commentList.textContent ="";  
+      commentList.textContent = '';
       displayComments(commentsData, p, commentList);
     } else {
       errorMessage.style.color = 'red';

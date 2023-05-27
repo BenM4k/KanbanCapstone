@@ -1,8 +1,5 @@
 import createPopup from './popup.js';
 import { postLike, getLikes } from './fetch.js';
-import { getData } from './api.js';
-
-const microverseApi = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/Um2BR5oCOcLYd21wIEWu/';
 
 export default async function render(show, container) {
   const list = document.createElement('li');
@@ -45,7 +42,7 @@ export default async function render(show, container) {
 
   const likesData = await getLikes(show.title.split(' ').join(''));
 
-  if (likesData.item_id === show.title.split(' ').join('')){
+  if (likesData.item_id === show.title.split(' ').join('')) {
     likesNbr.textContent = likesData.likes;
   }
 
@@ -53,7 +50,7 @@ export default async function render(show, container) {
     await postLike(show.title.split(' ').join(''));
     const likesData = await getLikes(show.title.split(' ').join(''));
 
-    if (likesData.item_id === show.title.split(' ').join('')){
+    if (likesData.item_id === show.title.split(' ').join('')) {
       likesNbr.textContent = likesData.likes;
     }
   });
