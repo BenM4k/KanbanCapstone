@@ -53,7 +53,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Project Demo]()
+- [Live Project Demo](https://benm4k.github.io/KanbanCapstone/)
 
 - [Live Project Video](https://drive.google.com/file/d/1akE1_3BY8am07mZ72iQBCtqVsH4azA1s/view?usp=sharing)
 

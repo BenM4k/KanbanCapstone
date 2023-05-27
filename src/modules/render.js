@@ -7,7 +7,7 @@ export default async function render(show, container) {
   const div = document.createElement('div');
   const p = document.createElement('p');
   const likes = document.createElement('div');
-  const likesImg = document.createElement('img');
+  const likesImg = document.createElement('i');
   const likesNbr = document.createElement('span');
   const comments = document.createElement('p');
 
@@ -21,7 +21,9 @@ export default async function render(show, container) {
 
   img.src = `${show.img}`;
   p.innerText = `${show.title}`;
-  likesImg.src = '../src/assets/heart.png';
+  likesImg.classList.add("fa");
+  likesImg.classList.add("fa-heart-o");
+  likesImg.classList.add("fa-2x");
   comments.innerText = 'Comments';
 
   likes.appendChild(likesImg);
