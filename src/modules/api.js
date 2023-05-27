@@ -1,5 +1,3 @@
-// const microverseApi = '';
-
 export const getData = async (url) => {
   try {
     const response = await fetch(url);

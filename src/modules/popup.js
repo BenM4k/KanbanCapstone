@@ -1,9 +1,9 @@
-import { postComment } from './fetch.js';
+import { getComments, postComment, displayComments} from './fetch.js';
 import { getData } from './api.js';
 
-const microverseApi = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/YmJfq02jOUfGZEDWh0Nq/';
+const microverseApi = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/Um2BR5oCOcLYd21wIEWu/';
 
-export default function createPopup(show) {
+export default async function createPopup(show) {
   // initialization
   const card = document.querySelector('.popup-card');
   const popupHeader = document.createElement('div');
@@ -70,15 +70,9 @@ export default function createPopup(show) {
 
   // comment list
 
-  getData(`${microverseApi}comments?item_id=${show.title.trim().split(' ').join('')}`).then((data) => {
-    p.textContent = `Comments (${data.length})`;
-    data.forEach((comment) => {
-      const comm = document.createElement('li');
-      comm.textContent = `${comment.creation_date} - ${comment.username} : ${comment.comment}`;
-
-      commentList.appendChild(comm);
-    });
-  });
+  const commentsData = await getComments(show.title.trim().split(' ').join(''));
+  console.log(commentsData);  
+  displayComments(commentsData, p, commentList);
 
   // popup
   // card.classList.add('popup-card');
@@ -98,12 +92,17 @@ export default function createPopup(show) {
     card.textContent = '';
   });
 
-  submit.addEventListener('click', (e) => {
+  submit.addEventListener('click', async (e) => {
     e.preventDefault();
     if (name.value !== '' && message.value !== '') {
-      postComment(show, name.value, message.value);
+      await postComment(show.title.split(' ').join(''), name.value, message.value);
       name.value = '';
       message.value = '';
+
+      
+      const commentsData = await getComments(show.title.trim().split(' ').join(''));
+      commentList.textContent ="";  
+      displayComments(commentsData, p, commentList);
     } else {
       errorMessage.style.color = 'red';
       errorMessage.style.marginBottom = '10px';
